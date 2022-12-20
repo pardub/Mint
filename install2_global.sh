@@ -263,7 +263,7 @@ sudo apt install -y syncthing
 sudo apt install -y ffmpeg
 
 # GnuPG Made Easy
-sudo apt install -y gpgme
+# sudo apt install -y gpgme
 
 # Lynis - Security auditing and hardening tool, for UNIX-based systems
 sudo apt install -y lynis
