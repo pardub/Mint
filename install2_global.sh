@@ -312,7 +312,7 @@ sudo usermod -aG libvirt $USER
 
 
 # Install OpenJdk 11
-sudo apt install -y java-11-openjdk-devel.x86_64 
+sudo apt install -y openjdk-11-jdk
 
 
 # +---------------------------------------+
