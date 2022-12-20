@@ -404,8 +404,8 @@ sudo echo 'max-cache-ttl 604800'                 | sudo tee -a $HOME/.gnupg/gpg-
 sudo hostnamectl set-hostname Mint
 
 # DISABLING SSH
-sudo systemctl stop sshd
-sudo systemctl disable sshd
+#sudo systemctl stop sshd
+#sudo systemctl disable sshd
 
 # Disable Firewalld and Setup iptables ####
 #cd
