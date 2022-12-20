@@ -566,7 +566,7 @@ sudo chown $USER:$USER /mnt/Dropbox
 mkdir -p "$HOME"/Documents/share_laptop_android
 
 # Enabling Selinux enforcing
-sudo sed -i 's/SELINUX=disabled/SELINUX=enforcing/' /etc/selinux/config
+#sudo sed -i 's/SELINUX=disabled/SELINUX=enforcing/' /etc/selinux/config
 
 # INSTALL JETBRAINS MONO FONTS IN ~/.local/share/fonts
 #mkdir -p "$HOME"/.local/share/fonts/nerd-fonts
