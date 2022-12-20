@@ -254,7 +254,7 @@ sudo apt install -y syncthing
 #sudo dnf -y install dropbox
 #sudo dnf -y install chrome-remote-desktop
 
-sudo apt install -y fuse
+### sudo apt install -y fuse
 
 # Kde certificate manager and GUI for OpenPGP 
 #sudo dnf -y install kleopatra
