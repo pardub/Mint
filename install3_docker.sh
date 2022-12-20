@@ -16,10 +16,6 @@ sudo apt-get update
 sudo systemctl start docker
 sudo systemctl enable docker
 
-# Docker-compose install
-sudo apt-get update
-sudo apt-get install docker-compose-plugin
-
 # Add USER to docker group
 sudo usermod -aG docker ${USER}
 
