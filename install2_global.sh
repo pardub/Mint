@@ -212,7 +212,7 @@ sudo apt install -y borgbackup
 sudo apt install -y borgmatic
 
 # Collaborative cheatsheets for console commands
-sudo apt install -y install tldr
+sudo apt install -y tldr
 
 # IRC client
 # sudo dnf -y install weechat
