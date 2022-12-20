@@ -439,58 +439,59 @@ touch init.vim $HOME/.config/nvim/ || exit
 # We will need this value later, so let’s save it in a variable:
 
 # set up minimize/maximize  window
-gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close"
+#gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close"
 
-GNOME_TERMINAL_PROFILE=$(gsettings get org.gnome.Terminal.ProfilesList default | awk -F \' '{print $2}')
+#GNOME_TERMINAL_PROFILE=$(gsettings get org.gnome.Terminal.ProfilesList default | awk -F \' '{print $2}')
 #gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:"$GNOME_TERMINAL_PROFILE"/ font 'Monospace 10'
 #gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:"$GNOME_TERMINAL_PROFILE"/ font 'MesloLGS NF 10'
 #gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:"$GNOME_TERMINAL_PROFILE"/ font 'JetBrainsMono NF 10'
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:"$GNOME_TERMINAL_PROFILE"/ font "JetBrainsMonoMedium Nerd Font 12"
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:"$GNOME_TERMINAL_PROFILE"/ use-system-font false
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:"$GNOME_TERMINAL_PROFILE"/ audible-bell false
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:"$GNOME_TERMINAL_PROFILE"/ use-theme-colors false
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:"$GNOME_TERMINAL_PROFILE"/ background-color '#000000'
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:"$GNOME_TERMINAL_PROFILE"/ foreground-color '#AFAFAF'
+#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:"$GNOME_TERMINAL_PROFILE"/ font "JetBrainsMonoMedium Nerd Font 12"
+#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:"$GNOME_TERMINAL_PROFILE"/ use-system-font false
+#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:"$GNOME_TERMINAL_PROFILE"/ audible-bell false
+#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:"$GNOME_TERMINAL_PROFILE"/ use-theme-colors false
+#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:"$GNOME_TERMINAL_PROFILE"/ background-color '#000000'
+#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:"$GNOME_TERMINAL_PROFILE"/ foreground-color '#AFAFAF'
 #gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:"$GNOME_TERMINAL_PROFILE"/ cursor-shape 'I-Beam'
 
 
 # Disable updates and upgrades in GNOME Software
-gsettings set org.gnome.software allow-updates false
+#gsettings set org.gnome.software allow-updates false
 
 # Disable automatically download and install updates
-gsettings set org.gnome.software download-updates false
+#gsettings set org.gnome.software download-updates false
 
 # Disable notifications about software updated in the background
-gsettings set  org.gnome.software download-updates-notify false
+#gsettings set  org.gnome.software download-updates-notify false
 
 # Disable check of the very first run of GNOME Software
-gsettings set org.gnome.software first-run false
+#gsettings set org.gnome.software first-run false
 
 # Disable Remember recent files
-gsettings set org.gnome.desktop.privacy remember-recent-files false
+#gsettings set org.gnome.desktop.privacy remember-recent-files false
 
 # Disable audible bell
-gsettings set org.gnome.desktop.wm.preferences audible-bell false
+#gsettings set org.gnome.desktop.wm.preferences audible-bell false
 
 # Show weekday on Gnome
-gsettings set org.gnome.desktop.interface clock-show-weekday true
+#gsettings set org.gnome.desktop.interface clock-show-weekday true
 
 # Show hidden files in files manager
-gsettings set org.gtk.Settings.FileChooser show-hidden true
+#gsettings set org.gtk.Settings.FileChooser show-hidden true
 
 # Send reports of technical problems to the vendor
-gsettings set org.gnome.desktop.privacy report-technical-problems false
+#gsettings set org.gnome.desktop.privacy report-technical-problems false
 
 # Geolocation services are disabled
-gsettings set org.gnome.system.location enabled false
+#gsettings set org.gnome.system.location enabled false
 
 # Mouse : Focus on Hover
 # https://askubuntu.com/questions/64605/how-do-i-set-focus-follows-mouse
-gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'
+#gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'
 
 
 
 # OPENSNITCH
+sudo apt install -y  python3-pip
 sudo mkdir -p /opt/opensnitch || exit
 cd /opt/opensnitch || exit
 sudo wget https://github.com/evilsocket/opensnitch/releases/download/v1.5.2/opensnitch_1.5.2-1_amd64.deb
@@ -511,7 +512,7 @@ pip3 install qt-material
 # | Firefox hardening |
 # +-------------------+
 
-flatpak run org.mozilla.firefox -CreateProfile Arkenfox
+#flatpak run org.mozilla.firefox -CreateProfile Arkenfox
 cd $HOME/.mozilla/firefox
 cd *.Arkenfox
 wget https://raw.githubusercontent.com/arkenfox/user.js/master/updater.sh
