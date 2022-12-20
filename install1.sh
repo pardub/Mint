@@ -4,6 +4,8 @@
 # | Install |
 # +---------+
 
+sudo apt -y  update
+sudo apt -y upgrade
 # Setup Visudo
 echo "$USER ALL=(ALL:ALL) ALL" | sudo EDITOR='tee -a' visudo
 echo "Defaults:$USER timestamp_timeout=120" | sudo EDITOR='tee -a' visudo
