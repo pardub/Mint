@@ -9,7 +9,7 @@ sudo apt-get install \
     lsb-release
     
 sudo mkdir -p /etc/apt/keyrings
-sudo apt install docker*
+sudo apt -y install docker*
   
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
