@@ -269,7 +269,7 @@ sudo apt install -y ffmpeg
 sudo apt install -y lynis
 
 # change MAC addres
-sudo apt install -y macchanger 
+#sudo apt install -y macchanger 
 
 # Etesync repo && Etesync add-on for Evolution #
 # Not necessary as it is integrated in the Flatpak Evolution
