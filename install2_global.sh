@@ -237,7 +237,7 @@ sudo apt install -y exa
 sudo apt install -y fzf
 
 # youtube -cli
-sudo apt install -yyt-dlp
+sudo apt install -y yt-dlp
 
 # Text Calendar
 sudo apt install -y calcurse
