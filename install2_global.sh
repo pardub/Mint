@@ -152,7 +152,7 @@ sudo apt install -y nmap
 #sudo dnf -y install timeshift
 
 # Shell script analysis tool
-sudo apt install -y shellCheck
+sudo apt install -y shellcheck
 
 # Create containers
 #sudo dnf -y install distrobox
