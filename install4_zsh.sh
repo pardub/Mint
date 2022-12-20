@@ -2,7 +2,7 @@
 
 # Zsh
 sudo apt install -y zsh
-sudo apt install -y  util-linux-user
+sudo apt install -y  util-linux
 
 # zsh default shell
 # sudo chsh -s /bin/zsh marc ## replaced by the command below
