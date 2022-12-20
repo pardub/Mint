@@ -182,7 +182,7 @@ sudo apt install -y gparted
 sudo apt install -y linphone
 
 # Collection of Linux utilities
-sudo apt install -y util-linux-user
+sudo apt install -y util-linux
 
 # Zsh
 sudo apt install -y zsh
