@@ -32,7 +32,7 @@ flatpak install -y  flathub ca.desrt.dconf-editor
 flatpak install -y flathub com.github.tchx84.Flatseal
 
 # Firefox
-# flatpak install -y flathub org.mozilla.firefox
+ flatpak install -y flathub org.mozilla.firefox
 
 # Mail Client Evolution ##Need flatub version to get Etesync ( Not available in Fedora flatpak repo)
 flatpak install -y flathub org.gnome.evolution
