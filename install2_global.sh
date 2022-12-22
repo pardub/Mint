@@ -515,7 +515,7 @@ pip3 install qt-material
 # | Firefox hardening |
 # +-------------------+
 
-#flatpak run org.mozilla.firefox -CreateProfile Arkenfox
+flatpak run org.mozilla.firefox -CreateProfile Arkenfox
 cd $HOME/.mozilla/firefox
 cd *.Arkenfox
 wget https://raw.githubusercontent.com/arkenfox/user.js/master/updater.sh
