@@ -26,7 +26,7 @@ flatpak install  -y flathub org.filezillaproject.Filezilla
 flatpak install -y  flathub ca.desrt.dconf-editor
 
  # Neovim
- flatpak install -y flathub io.neovim.nvim
+ #flatpak install -y flathub io.neovim.nvim
  
 # Manage Flatpak permissions
 flatpak install -y flathub com.github.tchx84.Flatseal
@@ -197,7 +197,10 @@ sudo apt install -y ranger
 # sudo dnf -y install chromium-browser-privacy
 
 # Development tools
-sudo apt install -y build-essential 
+sudo apt install -y build-essential
+
+# Neovim 
+sudo apt install -y neovim
 
 sudo apt install -y  ansible
 
