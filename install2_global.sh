@@ -206,6 +206,23 @@ sudo apt install qtpass -y
 # Tool necessary to use wireguard on Debian
 sudo apt install openresolv -y
 
+
+# +--------+
+# | Rclone |
+# +---------+
+
+# Fuse file system
+sudo apt install fuse -y
+
+sudo mkdir -p /mnt/rclone
+sudo mkdir -p /mnt/rclone_unencrypted
+sudo mkdir -p /mnt/Dropbox
+#sudo mkdir -p /mnt/Onedrive
+sudo chown $USER:$USER /mnt/rclone
+sudo chown $USER:$USER /mnt/rclone_unencrypted
+sudo chown $USER:$USER /mnt/Dropbox
+#sudo chown $USER:$USER /mnt/Onedrive
+
 # Firewall
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
