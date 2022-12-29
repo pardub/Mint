@@ -84,7 +84,7 @@ flatpak install flathub com.bitwarden.desktop -y
 flatpak install flathub com.borgbase.Vorta -y
 
 # Virtualization made simple
-flatpak install flathub org.gnome.Boxes -y
+# flatpak install flathub org.gnome.Boxes -y
 
 # Intellij Idea Community
 #flatpak install flathub com.jetbrains.IntelliJ-IDEA-Community -y
