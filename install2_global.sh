@@ -122,6 +122,9 @@ sudo apt install most -y
 # network scanner 
 sudo apt install nmap -y
 
+# Disks management
+sudo apt install gparted -y
+
 # Shell script analysis tool
 sudo apt install shellcheck -y
 
