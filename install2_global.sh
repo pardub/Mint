@@ -206,6 +206,12 @@ sudo apt install qtpass -y
 # Tool necessary to use wireguard on Debian
 sudo apt install openresolv -y
 
+# Firewall
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw enable
+
+
 # +----------------+
 # | Virtualization |
 # +----------------+
