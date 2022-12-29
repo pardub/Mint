@@ -200,6 +200,9 @@ sudo apt install pass -y
 # Gui for Pass
 sudo apt install qtpass -y
 
+# Tool necessary to use wireguard on Debian
+sudo apt install openresolv -y
+
 # +----------------+
 # | Virtualization |
 # +----------------+
