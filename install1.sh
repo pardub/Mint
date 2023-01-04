@@ -16,4 +16,8 @@ sudo echo 'nameserver 84.200.70.40' | sudo tee -a /etc/resolv.conf
 mkdir -p "$HOME"/.config/zsh
 cd || exit
 
+# Install automatically security updates
+sudo apt install unattended-upgrades -y
+
+
 # sudo reboot
