@@ -206,6 +206,10 @@ sudo apt install qtpass -y
 # Tool necessary to use wireguard on Debian
 sudo apt install openresolv -y
 
+# Add Repo Veracrypt
+sudo add-apt-repository ppa:unit193/encryption -y
+sudo apt install veracrypt -y
+
 
 # +--------+
 # | Rclone |
