@@ -81,7 +81,7 @@ flatpak install flathub org.keepassxc.KeePassXC -y
 flatpak install flathub com.bitwarden.desktop -y
 
 # Download Vorta backup
-flatpak install flathub com.borgbase.Vorta -y
+# flatpak install flathub com.borgbase.Vorta -y
 
 # Virtualization made simple
 # flatpak install flathub org.gnome.Boxes -y
