@@ -331,6 +331,12 @@ cd || exit
  # wgswitch Tokyo London
  ## See wgswitch function in zsh-functions
 
+# Change the first day of the week from Sunday to Monday
+# cd /usr/share/i18n/locales
+# open file LANG=en_US.UTF-8
+# Look for  block we want starts with LC_TIME and ends with END LC_TIME
+# Add above END LC_TIME "first_weekday 2" wihout quotes
+# run sudo locale-gen
 
 # sudo reboot
 
