@@ -213,7 +213,6 @@ sudo apt install veracrypt -y
 # Install pip3
 sudo apt install python3-pip -y
 
-
 # +--------+
 # | Vscode |
 # +---------+
@@ -227,6 +226,20 @@ sudo apt install apt-transport-https -y
 sudo apt update -y 
 sudo apt install code -y
 
+# +---------------------------------------+
+# | Manual install - Intellj Idea Toolbox |
+# +---------------------------------------+
+
+cd || exit
+tb_releases_url='https://data.services.jetbrains.com/products/releases?code=TBA&latest=true&type=release'
+download_url=$(curl --silent $tb_releases_url | jq --raw-output '.TBA[0].downloads.linux.link')
+curl --output jetbrains-toolbox.tgz --progress-bar --location $download_url
+cd /opt
+sudo tar -xvzf ~/jetbrains-toolbox.tgz
+cd /opt/jetbrains-toolbox-*
+./jetbrains-toolbox
+cd || exit
+rm -rf jetbrains-toolbox.tgz
 
 # +--------+
 # | Rclone |
