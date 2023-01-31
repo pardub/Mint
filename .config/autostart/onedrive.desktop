@@ -1,5 +1,5 @@
 [Desktop Entry]
-Type=Application
+Name=Onedrive
 Exec=sh -c "rclone mount --daemon Onedrive: /mnt/Onedrive"
 Terminal=false
 Type=Application
