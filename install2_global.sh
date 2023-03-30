@@ -303,6 +303,7 @@ touch init.vim $HOME/.config/nvim/ || exit
 
 # OPENSNITCH
 sudo apt install python3-pip -y
+# https://github.com/evilsocket/opensnitch/issues/647
 python3.10 -m pip install --ignore-installed grpcio
 sudo mkdir -p /opt/opensnitch || exit
 cd /opt/opensnitch || exit
