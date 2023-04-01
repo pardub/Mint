@@ -181,9 +181,6 @@ sudo apt install bat -y
 # A modern replacement for ls
 sudo apt install exa -y
 
-# A command-line fuzzy finder
-sudo apt install fzf -y
-
 # youtube -cli
 sudo apt install yt-dlp -y
 
@@ -212,6 +209,16 @@ sudo apt install veracrypt -y
 
 # Install pip3
 sudo apt install python3-pip -y
+
+
+# +--------------------------+
+# | Tools installed with Git |
+# +--------------------------+
+# A command-line fuzzy finder
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
+
 
 # +--------+
 # | Vscode |
