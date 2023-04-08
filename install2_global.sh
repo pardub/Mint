@@ -276,6 +276,10 @@ sudo ufw enable
 rm -rf ~/.emacs.d
 git clone https://github.com/plexus/chemacs2 ~/.emacs.d
 
+# Download .emacs-profiles.el
+cd "$HOME" || exit
+wget https://raw.githubusercontent.com/pardub/dotfiles_test/main/dotfiles/.emacs-profiles.el
+
 # +----------------+
 # | Virtualization |
 # +----------------+
