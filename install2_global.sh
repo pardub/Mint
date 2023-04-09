@@ -119,7 +119,7 @@ flatpak install flathub org.chromium.Chromium -y
 # +---------+
 
 # Install compilation tools for Emacs
-sudo apt install build-essential texinfo libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev gnutls-dev libgtk-3-dev -y
+sudo apt install build-essential texinfo libgccjit0 libgccjit-10-dev libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev gnutls-dev libgtk-3-dev -y
 
 # Man page with colors
 sudo apt install most -y
