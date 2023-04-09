@@ -1,8 +1,5 @@
 #!/bin/bash -xev
 
-# +---------+
-# | Install |
-# +---------+
 
 # +--------------+
 # | Flatpak apps |
@@ -115,6 +112,14 @@ flatpak install flathub com.github.johnfactotum.Foliate -y
 
 # Chromium Web Browser
 flatpak install flathub org.chromium.Chromium -y
+
+
+# +---------+
+# | Install |
+# +---------+
+
+# Install texinfo
+sudo apt install texinfo
 
 # Man page with colors
 sudo apt install most -y
