@@ -344,19 +344,6 @@ cd || exit
 #pip3 install qt-material
 
 
-# +--------+
-# | Rclone |
-# +---------+
-
-sudo mkdir -p /mnt/rclone
-sudo mkdir -p /mnt/rclone_unencrypted
-sudo mkdir -p /mnt/Dropbox
-#sudo mkdir -p /mnt/Onedrive
-sudo chown $USER:$USER /mnt/rclone
-sudo chown $USER:$USER /mnt/rclone_unencrypted
-sudo chown $USER:$USER /mnt/Dropbox
-#sudo chown $USER:$USER /mnt/Onedrive
-
 # INSTALL JETBRAINS MONO FONTS IN ~/.local/share/fonts
 mkdir -p "$HOME"/.local/share/fonts/nerd-fonts
 cd /tmp
