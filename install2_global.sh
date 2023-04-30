@@ -78,7 +78,12 @@ flatpak install flathub org.keepassxc.KeePassXC -y
 flatpak install flathub com.bitwarden.desktop -y
 
 # Download Vorta backup
-# flatpak install flathub com.borgbase.Vorta -y
+flatpak install flathub com.borgbase.Vorta -y
+# change permisions from 644 to 600 on ~/.ssh/config to avoid error "Connection closed by remote host"
+# see https://github.com/borgbase/vorta/issues/1345
+cd ~/.ssh 
+chmod 600 config || exit
+cd
 
 # Virtualization made simple
 # flatpak install flathub org.gnome.Boxes -y
