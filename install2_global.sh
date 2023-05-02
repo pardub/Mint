@@ -123,6 +123,13 @@ flatpak install flathub org.chromium.Chromium -y
 # | Install |
 # +---------+
 
+# add repo to install Foliate ( ebook reader)
+sudo add-apt-repository ppa:apandada1/foliate -y
+sudo apt update -y
+sudo apt install foliate -y
+
+# Install Foliate
+
 # Install compilation tools for Emacs
 sudo apt install build-essential texinfo libgccjit0 libgccjit-10-dev libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev gnutls-dev libgtk-3-dev -y
 
@@ -227,8 +234,6 @@ sudo apt install python3-pip -y
 # A command-line fuzzy finder
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
-
-
 
 # +--------+
 # | Vscode |
