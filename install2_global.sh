@@ -113,7 +113,7 @@ flatpak install flathub org.nmap.Zenmap -y
 flatpak install flathub com.github.maoschanz.drawing -y
 
 # A simple and modern eBook viewer
-flatpak install flathub com.github.johnfactotum.Foliate -y
+# flatpak install flathub com.github.johnfactotum.Foliate -y
 
 # Chromium Web Browser
 flatpak install flathub org.chromium.Chromium -y
