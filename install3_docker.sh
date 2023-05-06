@@ -24,3 +24,10 @@ sudo mv /usr/share/zsh/vendor-completions/_docker /usr/share/zsh/site-functions
 
 # Delete .zcompdump
 rm -f "$HOME"/.config/zsh/.zcompdump
+
+# +---------------+
+# |   Portainer   | 
+# +---------------+
+
+# Add firewall rule for Edge agent in Portainer
+sudo ufw allow 9443
