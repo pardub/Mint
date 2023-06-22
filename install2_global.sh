@@ -165,6 +165,9 @@ sudo apt install util-linux -y
 # Zsh
 sudo apt install zsh -y
 
+# colordiff
+sudo apt install colordiff -y
+
 # Development tools
 sudo apt install build-essential -y
 
