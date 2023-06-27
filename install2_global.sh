@@ -235,6 +235,9 @@ sudo apt install python3-pip -y
 sudo apt install npm
 sudo npm install -g marked
 
+# To delete DoomEmacs error "The installed ripgrep binary was not built with support for PCRE lookaheads"
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
+sudo dpkg -i ripgrep_13.0.0_amd64.deb
 
 # +--------------------------+
 # | Tools installed with Git |
