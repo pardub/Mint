@@ -230,6 +230,10 @@ sudo apt install veracrypt -y
 # Install pip3
 sudo apt install python3-pip -y
 
+# Install npm ( for doom Emacs)
+sudo apt install npm
+sudo npm install -g marked
+
 
 # +--------------------------+
 # | Tools installed with Git |
