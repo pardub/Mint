@@ -4,6 +4,9 @@
 # | Install |
 # +---------+
 
+# Tools for Emacs compiling
+sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa
+
 sudo apt update -y
 sudo apt upgrade -y
 echo "$USER ALL=(ALL:ALL) ALL" | sudo EDITOR='tee -a' visudo
