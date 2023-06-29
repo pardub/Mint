@@ -222,10 +222,6 @@ sudo apt install veracrypt -y
 # Install pip3
 sudo apt install python3-pip -y
 
-# Install npm ( for doom Emacs)
-sudo apt install npm
-sudo npm install -g marked
-
 # To delete DoomEmacs error "The installed ripgrep binary was not built with support for PCRE lookaheads"
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
 sudo dpkg -i ripgrep_13.0.0_amd64.deb
@@ -396,6 +392,10 @@ cd || exit
 # Install compilation tools for Emacs
 sudo apt install  build-essential texinfo libgccjit0 libgccjit-10-dev libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev gnutls-dev libgtk-3-dev -y
 sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+
+# Install npm ( for doom Emacs)
+sudo apt install npm
+sudo npm install -g marked
 
 # To use Vterm in Emacs
 sudo apt install libvterm-dev -y
