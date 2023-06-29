@@ -389,6 +389,9 @@ cd || exit
 sudo apt install  build-essential texinfo libgccjit0 libgccjit-10-dev libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev gnutls-dev libgtk-3-dev -y
 sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
 
+sudo add-apt-repository ppa:kelleyk/emacs -y
+sudo apt install emacs28-nativecomp -y
+
 # Install npm ( for doom Emacs)
 sudo apt install npm
 sudo npm install -g marked
