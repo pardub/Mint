@@ -123,12 +123,12 @@ flatpak install flathub org.chromium.Chromium -y
 # | Install |
 # +---------+
 
+
+
 # add repo to install Foliate ( ebook reader)
 sudo add-apt-repository ppa:apandada1/foliate -y
 sudo apt update -y
 sudo apt install foliate -y
-
-# Install Foliate
 
 # Install compilation tools for Emacs
 sudo apt install  build-essential texinfo libgccjit0 libgccjit-10-dev libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev gnutls-dev libgtk-3-dev -y
@@ -180,7 +180,6 @@ sudo apt install  ansible -y
 # TeamViewer alternative
 # https://github.com/rustdesk/rustdesk
 
-
 # Deduplicating backup program
 sudo apt install borgbackup -y
 
@@ -210,7 +209,6 @@ sudo apt install rclone -y
 
 # Collection of libraries and tools to process multimedia content such as audio, video, subtitles and related metadata.
 ####sudo apt install ffmpeg -y
-
 
 # change MAC addres
 #sudo apt install macchanger  -y
@@ -397,6 +395,15 @@ cd || exit
 # Look for  block we want starts with LC_TIME and ends with END LC_TIME
 # Add above END LC_TIME "first_weekday 2" wihout quotes
 # run sudo locale-gen
+
+# +---------+
+# | Emacs   |
+# +---------+
+
+# To use Vterm in Emacs
+sudo apt install libvterm-dev -y
+sudo apt install cmake -y
+
 
 # sudo reboot
 
