@@ -94,9 +94,6 @@ cd
 # IRC Client
 flatpak install flathub io.github.Hexchat -y
 
-# Emacs
-flatpak install flathub org.gnu.emacs -y
-
 # An Open Source YouTube app for privacy
 flatpak install flathub io.freetubeapp.FreeTube -y
 
