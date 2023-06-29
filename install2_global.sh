@@ -127,10 +127,6 @@ sudo add-apt-repository ppa:apandada1/foliate -y
 sudo apt update -y
 sudo apt install foliate -y
 
-# Install compilation tools for Emacs
-sudo apt install  build-essential texinfo libgccjit0 libgccjit-10-dev libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev gnutls-dev libgtk-3-dev -y
-sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
-
 # Man page with colors
 sudo apt install most -y
 
@@ -396,6 +392,10 @@ cd || exit
 # +---------+
 # | Emacs   |
 # +---------+
+
+# Install compilation tools for Emacs
+sudo apt install  build-essential texinfo libgccjit0 libgccjit-10-dev libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev gnutls-dev libgtk-3-dev -y
+sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
 
 # To use Vterm in Emacs
 sudo apt install libvterm-dev -y
