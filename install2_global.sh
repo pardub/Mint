@@ -408,6 +408,13 @@ sudo apt install cmake -y
 # Necessary to install for proper use with org-roam
 sudo apt install graphviz -y
 
+# Emacs python packages
+pip install pytest
+pip install nose
+pip install black
+pip install pyflake
+pip install isort 
+
 
 # sudo reboot
 
