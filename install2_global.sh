@@ -405,6 +405,9 @@ sudo dpkg -i ripgrep_13.0.0_amd64.deb
 sudo apt install libvterm-dev -y
 sudo apt install cmake -y
 
+# Necessary to install for proper use with org-roam
+sudo apt install graphviz -y
+
 
 # sudo reboot
 
