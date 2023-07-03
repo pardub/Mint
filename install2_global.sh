@@ -195,6 +195,7 @@ sudo apt install bat -y
 sudo apt install exa -y
 
 # youtube -cli
+sudo add-apt-repository ppa:tomtomtom/yt-dlp -y
 sudo apt install yt-dlp -y
 
 # rsync for cloud storage
