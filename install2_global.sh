@@ -334,8 +334,8 @@ sudo apt install python3-pip -y
 python3.10 -m pip install --ignore-installed grpcio
 sudo mkdir -p /opt/opensnitch || exit
 cd /opt/opensnitch || exit
-sudo wget https://github.com/evilsocket/opensnitch/releases/download/v1.5.2/opensnitch_1.5.2-1_amd64.deb
-sudo wget https://github.com/evilsocket/opensnitch/releases/download/v1.5.2/python3-opensnitch-ui_1.5.2-1_all.deb
+sudo wget https://github.com/evilsocket/opensnitch/releases/download/v1.6.0/opensnitch_1.6.0.1-1_amd64.deb
+sudo wget https://github.com/evilsocket/opensnitch/releases/download/v1.6.0/python3-opensnitch-ui_1.6.0.1-1_all.deb
 sudo apt install -y ./opensnitch*.deb ./python3-opensnitch-ui*.deb
 sudo systemctl enable --now opensnitch || exit
 sudo systemctl start opensnitch || exit
