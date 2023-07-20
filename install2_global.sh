@@ -416,6 +416,10 @@ pip install black
 pip install pyflake
 pip install isort 
 
+# Privacy tools
+# https://sandlab.cs.uchicago.edu/fawkes/
+pip install fawkes
+
 
 # sudo reboot
 
