@@ -341,6 +341,10 @@ sudo systemctl enable --now opensnitch || exit
 sudo systemctl start opensnitch || exit
 cd || exit
 
+# Opensnitch doesn't start
+# see https://github.com/evilsocket/opensnitch/issues/860#issuecomment-1471565761
+pip3 uninstall protobuf
+
 
 # Opensnitch dark mode
 #pip3 install grpcio-tools
