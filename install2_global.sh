@@ -345,6 +345,10 @@ cd || exit
 # see https://github.com/evilsocket/opensnitch/issues/860#issuecomment-1471565761
 pip3 uninstall protobuf
 
+# Vpn connections issues
+# https://github.com/evilsocket/opensnitch/issues/454
+# Fix: Go to Gui -> Preferences -> Nodes -> tick "Debug invalid connections". That will allow pop up to accept vpn outgoing connections.
+
 
 # Opensnitch dark mode
 #pip3 install grpcio-tools
