@@ -133,6 +133,9 @@ sudo apt install most -y
 # network scanner 
 sudo apt install nmap -y
 
+# process viewer
+sudo apt install htop -y
+
 # Disks management
 sudo apt install gparted -y
 
