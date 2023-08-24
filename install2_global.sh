@@ -130,6 +130,9 @@ sudo apt install foliate -y
 # Man page with colors
 sudo apt install most -y
 
+# Command-line JSON processor 
+sudo apt install jq -y
+
 # network scanner 
 sudo apt install nmap -y
 
