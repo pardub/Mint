@@ -131,6 +131,11 @@ sudo apt install foliate -y
 sudo apt install most -y
 
 # Command-line JSON processor 
+# jq is like sed for JSON data
+# you can use it to slice and filter and map
+# and transform structured data with the same 
+# ease that sed, awk, grep and friends
+# let you play with text
 sudo apt install jq -y
 
 # network scanner 
