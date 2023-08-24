@@ -138,6 +138,9 @@ sudo apt install most -y
 # let you play with text
 sudo apt install jq -y
 
+# command-line HTTP client, similar to Curl
+sudo apt install httpie -y
+
 # network scanner 
 sudo apt install nmap -y
 
