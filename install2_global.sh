@@ -115,6 +115,9 @@ flatpak install flathub com.github.maoschanz.drawing -y
 # Chromium Web Browser
 flatpak install flathub org.chromium.Chromium -y
 
+# A simple and lightweight translator that allows you to translate and speak text using Google, Yandex Bing, LibreTranslate and Lingva. 
+flatpak install flathub io.crow_translate.CrowTranslate -y
+
 
 # +---------+
 # | Install |
