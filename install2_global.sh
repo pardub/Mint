@@ -316,7 +316,7 @@ sudo usermod -aG kvm $USER
 sudo usermod -aG libvirt $USER
 
 # library for accessing and modifying VM disk images
-sudo apt install libguestfs-tools -y
+# sudo apt install libguestfs-tools -y
 
 # Install OpenJdk 11
 sudo apt install openjdk-11-jdk  -y
