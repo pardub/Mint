@@ -199,6 +199,9 @@ sudo apt install borgmatic -y
 # Collaborative cheatsheets for console commands
 sudo apt install tldr -y
 
+# to update tldr
+tldr -u 
+
 # IRC client
 # sudo dnf -y install weechat -y
 
