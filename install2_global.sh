@@ -246,6 +246,7 @@ sudo apt install python3-pip -y
 # +--------------------------+
 # | Tools installed with Git |
 # +--------------------------+
+
 # A command-line fuzzy finder
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
