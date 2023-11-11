@@ -243,6 +243,9 @@ sudo apt install veracrypt -y
 # Install pip3
 sudo apt install python3-pip -y
 
+# Install RSS plugin for Evolution
+sudo apt install evolution-rss -y
+
 # +--------------------------+
 # | Tools installed with Git |
 # +--------------------------+
