@@ -454,6 +454,10 @@ pip install isort
 # https://sandlab.cs.uchicago.edu/fawkes/
 pip install fawkes
 
+# Install pgcli
+sudo apt install libpq-dev python-dev-is-python3 -y
+pip install pgcli
+
 
 # sudo reboot
 
