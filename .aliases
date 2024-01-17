@@ -1,5 +1,5 @@
 alias cm="chezmoi"
-alias cat="batcat"
+alias cat="batcat --style plain"
 alias up="sudo apt update -y && sudo apt upgrade -y && flatpak update -y"
 alias secu="sudo dnf update --security --bugfix"
 alias listsecu="sudo dnf updateinfo list --security --bugfix"
