@@ -246,6 +246,11 @@ sudo apt install python3-pip -y
 # Install RSS plugin for Evolution
 sudo apt install evolution-rss -y
 
+# Calibre for Mint
+sudo apt install libxcb-cursor0  -y
+sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
+
+
 # +--------------------------+
 # | Tools installed with Git |
 # +--------------------------+
