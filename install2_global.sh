@@ -455,6 +455,13 @@ pip install black
 pip install pyflake
 pip install isort 
 
+# Miniconda install
+mkdir -p ~/miniconda3
+cd ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm -rf ~/miniconda3/miniconda.sh
+
 # Privacy tools
 # https://sandlab.cs.uchicago.edu/fawkes/
 pip install fawkes
