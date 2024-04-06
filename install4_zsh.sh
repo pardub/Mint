@@ -41,6 +41,9 @@ wget https://raw.githubusercontent.com/pardub/dotfiles_test/main/dotfiles/init.v
 
 #sudo reboot
 
+# install Atuin "Magical shell history "
+bash <(curl https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh)
+echo 'eval "$(atuin init zsh)"' >> ~/.config/zsh/.zshrc
 
 ############## script 3 ##############
 
