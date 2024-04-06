@@ -131,6 +131,7 @@ alias iptlistin="sudo /sbin/iptables -L INPUT -n -v --line-numbers"
 alias iptlistout="sudo /sbin/iptables -L OUTPUT -n -v --line-numbers"
 alias iptlistfw="sudo /sbin/iptables -L FORWARD -n -v --line-numbers"
 alias firewall="iptlist"
+alias space='sudo du -d 1 -h | sort -h'
 
 # +--------+
 # | System |
