@@ -315,6 +315,9 @@ sudo ufw enable
 # +----------------+
 # |  Emacs Config  |
 # +----------------+
+# Tools for compiling Emacs
+sudo apt install libgccjit-11-dev -y
+sudo apt install libtree-sitter-dev -y
 
 #rm -rf ~/.emacs.d
 #git clone https://github.com/plexus/chemacs2 ~/.emacs.d
