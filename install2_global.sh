@@ -316,8 +316,8 @@ sudo ufw enable
 # |  Emacs Config  |
 # +----------------+
 # Tools for compiling Emacs
-sudo apt install libgccjit-11-dev -y
-sudo apt install libtree-sitter-dev -y
+sudo apt install -y autoconf make gcc texinfo libgtk-3-dev libxpm-dev libjpeg-dev libgif-dev libtiff5-dev libgnutls28-dev libncurses5-dev libjansson-dev \
+ libharfbuzz-dev libharfbuzz-bin imagemagick libmagickwand-dev libxaw7-dev libgccjit-11-dev libgccjit0 gcc-11 libjansson4 libjansson-dev xaw3dg-dev texinfo libx11-dev libtree-sitter-dev libtree-sitter0 -y
 
 #rm -rf ~/.emacs.d
 #git clone https://github.com/plexus/chemacs2 ~/.emacs.d
@@ -325,6 +325,8 @@ sudo apt install libtree-sitter-dev -y
 # Download .emacs-profiles.el
 #cd "$HOME" || exit
 #wget https://raw.githubusercontent.com/pardub/dotfiles_test/main/dotfiles/.emacs-profiles.el
+
+
 
 # +----------------+
 # | Virtualization |
