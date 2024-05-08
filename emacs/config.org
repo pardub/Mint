@@ -66,7 +66,7 @@ To keep this =config.org= a reasonable length, I have moved a lot of code to ind
 
 ** Sourcing the scripts
 #+begin_src emacs-lisp
-(require 'elpaca-setup)  ;; The Elpaca Package Manager
+(require 'straight-setup)  ;; The straight Package Manager
 (require 'buffer-move)   ;; Buffer-move for better window management
 #+end_src
 
