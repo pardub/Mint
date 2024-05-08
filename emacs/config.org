@@ -8,7 +8,6 @@
 - [[#important-programs-to-load-first][IMPORTANT PROGRAMS TO LOAD FIRST]]
 - [[#all-the-icons][ALL THE ICONS]]
 - [[#backup][BACKUP]]
-- [[#buffer-move][BUFFER MOVE]]
 - [[#company][COMPANY]]
 - [[#dashboard][DASHBOARD]]
 - [[#diminish][DIMINISH]]
