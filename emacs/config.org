@@ -1,12 +1,12 @@
 #+TITLE: GNU Emacs Config
-#+AUTHOR: Forket from Derek Taylor
+#+AUTHOR: Derek Taylor (DT)
 #+DESCRIPTION: Personal Emacs config
 #+STARTUP: showeverything
 #+OPTIONS: toc:2
+
 * TABLE OF CONTENTS :toc:
 - [[#important-programs-to-load-first][IMPORTANT PROGRAMS TO LOAD FIRST]]
-  - [[#adding-the-scripts-directory-to-path][Adding the scripts directory to path]]
-  - [[#sourcing-the-scripts][Sourcing the scripts]]
+  - [[#elpaca-package-manager][Elpaca Package Manager]]
 - [[#all-the-icons][ALL THE ICONS]]
 - [[#backup][BACKUP]]
 - [[#buffer-move][BUFFER MOVE]]
@@ -33,6 +33,10 @@
 - [[#minibuffer-escape][MINIBUFFER ESCAPE]]
 - [[#modeline][MODELINE]]
 - [[#neotree][NEOTREE]]
+- [[#projectile][PROJECTILE]]
+- [[#rainbow-delimiters][RAINBOW DELIMITERS]]
+- [[#rainbow-mode][RAINBOW MODE]]
+- [[#sane-defaults][SANE DEFAULTS]]
 - [[#org-mode][ORG MODE]]
   - [[#diminish-org-indent-mode][Diminish Org Indent Mode]]
   - [[#org-bullets][Org-Bullets]]
@@ -42,19 +46,14 @@
   - [[#toc-org][Toc-Org]]
 - [[#pdfs][PDFs]]
 - [[#perspective][PERSPECTIVE]]
-- [[#projectile][PROJECTILE]]
-- [[#rainbow-delimiters][RAINBOW DELIMITERS]]
-- [[#rainbow-mode][RAINBOW MODE]]
-- [[#sane-defaults][SANE DEFAULTS]]
 - [[#shells-and-terminals][SHELLS AND TERMINALS]]
   - [[#eshell][Eshell]]
   - [[#vterm][Vterm]]
   - [[#vterm-toggle][Vterm-Toggle]]
 - [[#sudo-edit][SUDO EDIT]]
 - [[#theme][THEME]]
-- [[#tldr][TLDR]]
 - [[#which-key][WHICH-KEY]]
-- [[#test][TEST]]
+
 
 * IMPORTANT PROGRAMS TO LOAD FIRST
 To keep this =config.org= a reasonable length, I have moved a lot of code to individual scripts that will be sourced by this config.  These scripts are found in "~/.config/emacs/scripts" and do not contain any code that most people are likely to need to edit.
@@ -66,7 +65,7 @@ To keep this =config.org= a reasonable length, I have moved a lot of code to ind
 
 ** Sourcing the scripts
 #+begin_src emacs-lisp
-(require 'straight-setup)  ;; The straight Package Manager
+(require 'straight-setup)  ;; The Straight Package Manager
 (require 'buffer-move)   ;; Buffer-move for better window management
 #+end_src
 
@@ -93,6 +92,7 @@ By default, Emacs creates automatic backups of files in their original directori
 
 #+begin_src emacs-lisp
 (setq backup-directory-alist '((".*" . "~/.local/share/Trash/files")))
+
 #+end_src
 
 
@@ -1163,7 +1163,3 @@ The first line below designates the directory where will place all of our custom
   (message "You choose `%s'" choice))
 
 #+end_src
-
-
-
-
