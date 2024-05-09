@@ -493,7 +493,7 @@ You can use the bindings CTRL plus =/- for zooming in/out.  You can also use CTR
     "h r" '(:ignore t :wk "Reload")
     "h r r" '((lambda () (interactive)
                 (load-file "~/.config/emacs/init.el")
-    ;;            (ignore (elpaca-process-queues)))
+                (ignore (elpaca-process-queues)))
               :wk "Reload emacs config")
     "h t" '(load-theme :wk "Load theme")
     "h v" '(describe-variable :wk "Describe variable")
