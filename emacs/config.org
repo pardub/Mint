@@ -906,6 +906,7 @@ The following settings are simple modes that are enabled (or disabled) so that E
 (setq use-file-dialog nil)   ;; No file dialog
 (setq use-dialog-box nil)    ;; No dialog box
 (setq pop-up-windows nil)    ;; No popup windows
+(pixel-scroll-precision-mode 1) ;; Enable pixel-scroll-precision-mode by default
 #+end_src
 
 
