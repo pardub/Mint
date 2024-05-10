@@ -921,7 +921,7 @@ Eshell is an Emacs 'shell' that is written in Elisp.
   (eshell-toggle-size-fraction 3)
   (eshell-toggle-use-projectile-root t)
   (eshell-toggle-run-command nil)
-  (eshell-toggle-init-function #'eshell-toggle-init-eshell))
+  (eshell-toggle-init-function #'eshell-toggle-init-eshell)) ;; make sure to add here "toggle-init-eshell" to avoid any issues with zsh.
 
   (use-package eshell-syntax-highlighting
     :after esh-mode
