@@ -1073,7 +1073,7 @@ The first line below designates the directory where will place all of our custom
                          ("3" "Three"))))              
       (cadr (assoc (completing-read "Choose: " completions) completions)))))
   (message "You choose `%s'" choice))
-#+end_srcr
+#+end_src
 
 #+begin_src emacs-lisp
 (use-package amx 
