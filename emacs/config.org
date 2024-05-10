@@ -1,3 +1,4 @@
+
 #+TITLE: GNU Emacs Config
 #+AUTHOR: Derek Taylor (DT)
 #+DESCRIPTION: Personal Emacs config
@@ -9,6 +10,7 @@
   - [[#adding-the-scripts-directory-to-path][Adding the scripts directory to path]]
   - [[#sourcing-the-scripts][Sourcing the scripts]]
 - [[#all-the-icons][ALL THE ICONS]]
+- [[#amx][AMX]]
 - [[#backup][BACKUP]]
 - [[#company][COMPANY]]
 - [[#dashboard][DASHBOARD]]
@@ -70,10 +72,9 @@ To keep this =config.org= a reasonable length, I have moved a lot of code to ind
 (require 'buffer-move)   ;; Buffer-move for better window management
 #+end_src
 
-
-
 * ALL THE ICONS
 This is an icon set that can be used with dashboard, dired, ibuffer and other Emacs programs.
+
 #+begin_src emacs-lisp
 (use-package all-the-icons
   :ensure t  ;; Ensure the package is installed from the package archive
@@ -88,6 +89,15 @@ This is an icon set that can be used with dashboard, dired, ibuffer and other Em
   :hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
 #+end_src
 
+* AMX
+An alternative M-x interface for Emacs that provides a convenient interface to your recently and most frequently used commands.
+
+#+begin_src emacs-lisp
+(use-package amx
+  :ensure t  
+  :config
+    (amx-mode 1))
+#+end_src
 * BACKUP
 By default, Emacs creates automatic backups of files in their original directories, such "file.el" and the backup "file.el~".  This leads to a lot of clutter, so let's tell Emacs to put all backups that it creates in the =TRASH= directory.
 
@@ -693,7 +703,7 @@ The modeline is the bottom status bar that appears in Emacs windows.  While you 
   :ensure t
   :init (doom-modeline-mode 1)
   :config
-  (setq doom-modeline-height 35      ;; sets modeline height
+  (setq doom-modeline-height 25      ;; sets modeline height
         doom-modeline-bar-width 5    ;; sets right bar width
         doom-modeline-persp-name t   ;; adds perspective name to modeline
         doom-modeline-persp-icon t)) ;; adds folder icon next to persp name
@@ -1073,10 +1083,4 @@ The first line below designates the directory where will place all of our custom
                          ("3" "Three"))))              
       (cadr (assoc (completing-read "Choose: " completions) completions)))))
   (message "You choose `%s'" choice))
-#+end_src
-
-#+begin_src emacs-lisp
-(use-package amx 
-:ensure t
-:config amx-mode 1))
 #+end_src
