@@ -6,6 +6,8 @@
 
 * TABLE OF CONTENTS :toc:
 - [[#important-programs-to-load-first][IMPORTANT PROGRAMS TO LOAD FIRST]]
+  - [[#adding-the-scripts-directory-to-path][Adding the scripts directory to path]]
+  - [[#sourcing-the-scripts][Sourcing the scripts]]
 - [[#all-the-icons][ALL THE ICONS]]
 - [[#backup][BACKUP]]
 - [[#company][COMPANY]]
@@ -31,10 +33,6 @@
 - [[#minibuffer-escape][MINIBUFFER ESCAPE]]
 - [[#modeline][MODELINE]]
 - [[#neotree][NEOTREE]]
-- [[#projectile][PROJECTILE]]
-- [[#rainbow-delimiters][RAINBOW DELIMITERS]]
-- [[#rainbow-mode][RAINBOW MODE]]
-- [[#sane-defaults][SANE DEFAULTS]]
 - [[#org-mode][ORG MODE]]
   - [[#diminish-org-indent-mode][Diminish Org Indent Mode]]
   - [[#org-bullets][Org-Bullets]]
@@ -44,14 +42,19 @@
   - [[#toc-org][Toc-Org]]
 - [[#pdfs][PDFs]]
 - [[#perspective][PERSPECTIVE]]
+- [[#projectile][PROJECTILE]]
+- [[#rainbow-delimiters][RAINBOW DELIMITERS]]
+- [[#rainbow-mode][RAINBOW MODE]]
+- [[#sane-defaults][SANE DEFAULTS]]
 - [[#shells-and-terminals][SHELLS AND TERMINALS]]
   - [[#eshell][Eshell]]
   - [[#vterm][Vterm]]
   - [[#vterm-toggle][Vterm-Toggle]]
 - [[#sudo-edit][SUDO EDIT]]
 - [[#theme][THEME]]
+- [[#tldr][TLDR]]
 - [[#which-key][WHICH-KEY]]
-
+- [[#test][TEST]]
 
 * IMPORTANT PROGRAMS TO LOAD FIRST
 To keep this =config.org= a reasonable length, I have moved a lot of code to individual scripts that will be sourced by this config.  These scripts are found in "~/.config/emacs/scripts" and do not contain any code that most people are likely to need to edit.
@@ -209,7 +212,7 @@ An RSS newsfeed reader for Emacs.  Move through the articles with 'j/k'.  Move t
   (setq elfeed-search-feed-face ":foreground #ffffff :weight bold"
         elfeed-feeds (quote
                        (("https://www.reddit.com/r/linux.rss" reddit linux)
-                        ("https://www.reddit.com/r/commandline.rss" reddit commandline)
+                        ("https://www.reddit.com/r/commandline.rss" eddit commandline)
                         ("https://www.reddit.com/r/distrotube.rss" reddit distrotube)
                         ("https://www.reddit.com/r/emacs.rss" reddit emacs)
                         ("https://www.gamingonlinux.com/article_rss.php" gaming linux)
@@ -321,15 +324,15 @@ Defining the various fonts that Emacs will use.
 ** Setting the Font Face
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
-  :font "JetBrains Mono"
-  :height 110
+  :font "JetBrainsMonoNerdFont"
+  :height 90
   :weight 'medium)
 (set-face-attribute 'variable-pitch nil
   :font "Ubuntu"
   :height 120
   :weight 'medium)
 (set-face-attribute 'fixed-pitch nil
-  :font "JetBrains Mono"
+  :font "JetBrainsMonoNerdFont"
   :height 110
   :weight 'medium)
 ;; Makes commented text and keywords italics.
@@ -343,7 +346,7 @@ Defining the various fonts that Emacs will use.
 ;; This sets the default font on all graphical frames created after restarting Emacs.
 ;; Does the same thing as 'set-face-attribute default' above, but emacsclient fonts
 ;; are not right unless I also add this method of setting the default font.
-(add-to-list 'default-frame-alist '(font . "JetBrains Mono-11"))
+;;(add-to-list 'default-frame-alist '(font . "JetBrainsMonoNerdFont-11"))
 
 ;; Uncomment the following line if line spacing needs adjusting.
 (setq-default line-spacing 0.12)
@@ -891,6 +894,7 @@ The following settings are simple modes that are enabled (or disabled) so that E
 (setq use-dialog-box nil)    ;; No dialog box
 (setq pop-up-windows nil)    ;; No popup windows
 (pixel-scroll-precision-mode 1) ;; Enable pixel-scroll-precision-mode by default
+(add-to-list 'default-frame-alist '(fullscreen . maximized)) ;;Maximize or fullscreen Emacs on startup
 #+end_src
 
 
@@ -1069,4 +1073,10 @@ The first line below designates the directory where will place all of our custom
                          ("3" "Three"))))              
       (cadr (assoc (completing-read "Choose: " completions) completions)))))
   (message "You choose `%s'" choice))
+#+end_srcr
+
+#+begin_src emacs-lisp
+(use-package amx 
+:ensure t
+:config amx-mode 1))
 #+end_src
