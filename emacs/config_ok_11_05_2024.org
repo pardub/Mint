@@ -338,15 +338,15 @@ Defining the various fonts that Emacs will use.
 (set-face-attribute 'default nil
   :font "JetBrainsMonoNerdFont"
   :height 90
-  :weight 'medium)
+  :weight 'bold)
 (set-face-attribute 'variable-pitch nil
   :font "Ubuntu"
   :height 120
   :weight 'medium)
 (set-face-attribute 'fixed-pitch nil
   :font "JetBrainsMonoNerdFont"
-  :height 110
-  :weight 'medium)
+  :height 90
+  :weight 'bold)
 ;; Makes commented text and keywords italics.
 ;; This is working in emacsclient but not emacs.
 ;; Your font must have an italic face available.
