@@ -1032,7 +1032,7 @@ The first line below designates the directory where will place all of our custom
 	  which-key-side-window-slot -10
 	  which-key-side-window-max-height 0.25
 	  which-key-idle-delay 0.8
-	  which-key-max-description-length 25
+	  which-key-max-description-length 40
 	  which-key-allow-imprecise-window-fit nil
 	  which-key-separator " → " ))
 #+end_src
