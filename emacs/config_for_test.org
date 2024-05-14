@@ -1,6 +1,3 @@
-
-
-
 #+TITLE: GNU EMACS Config
 #+AUTHOR: Derek Taylor (DT)
 #+DESCRIPTION: Personal Emacs config
@@ -14,6 +11,7 @@
 - [[#all-the-icons][ALL THE ICONS]]
 - [[#amx][AMX]]
 - [[#backup][BACKUP]]
+- [[#beacon][BEACON]]
 - [[#company][COMPANY]]
 - [[#dashboard][DASHBOARD]]
 - [[#diminish][DIMINISH]]
@@ -22,6 +20,7 @@
 - [[#ediff][EDIFF]]
 - [[#elfeed][ELFEED]]
 - [[#eradio][ERADIO]]
+- [[#esup][ESUP]]
 - [[#evil][EVIL]]
 - [[#flycheck][FLYCHECK]]
 - [[#fonts][FONTS]]
@@ -88,7 +87,10 @@ This is an icon set that can be used with dashboard, dired, ibuffer and other Em
      (all-the-icons-install-fonts t)))
 
 (use-package all-the-icons-dired
-  :hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
+  :ensure t
+  :hook (dired-mode . (lambda () (all-the-icons-dired-mode t)))
+  :config
+  (setq all-the-icons-dired-monochrome nil)) ; This ensures icons are in color
 #+end_src
 
 * AMX
@@ -96,7 +98,7 @@ An alternative M-x interface for Emacs that provides a convenient interface to y
 
 #+begin_src emacs-lisp
 (use-package amx
-  :ensure t  
+  :ensure t
   :config
     (amx-mode 1))
 #+end_src
@@ -107,8 +109,22 @@ By default, Emacs creates automatic backups of files in their original directori
 (setq backup-directory-alist '((".*" . "~/.local/share/Trash/files")))
 #+end_src
 
+* BEACON
+Never lose your cursor again
+#+begin_src emacs-lisp
+(use-package beacon
+  :custom
+ ;; (beacon-blink-when-window-scrolls t)
+ ;; (beacon-color 0.5)
+ ;; (beacon-blink-duration 1)
+ ;; (beacon-blink-delay 1)
+ ;; (beacon-blink-when-point-moves-vertically)
+ ;; :config
+  (beacon-mode 1))
+#+end_src
+
 * COMPANY
-[[https://company-mode.github.io/][Company]] is a text completion framework for Emacs. The name stands for "complete anything".  Completion will start automatically after you type a few letters. Use M-n and M-p to select, <return> to complete or <tab> to complete the common part.
+[[https://company-mode.github.io/][Company]] is a text completion framework for Emacs. The name stands for "complete anything".  Completion will start automatically after you type a few letters. Use M-n and M-p to select, <return> to complete or <tab> to cmplete the common part.
 
 #+begin_src emacs-lisp
 (use-package company
@@ -163,11 +179,6 @@ This package implements hiding or abbreviation of the modeline displays (lighter
 
 * DIRED
 #+begin_src emacs-lisp
-;; (use-package dired
-;;  :ensure nil ;; dired is part of Emacs, no need to download
-;;  :config
-  ;; Ensuring dired-dwim-target-directory is available
-;;  (require 'dired))
 
 (use-package dired-open
   :after dired ;; ensure it loads after dired
@@ -177,6 +188,12 @@ This package implements hiding or abbreviation of the modeline displays (lighter
                                 ("png" . "display")
                                 ("mkv" . "vlc")
                                 ("mp4" . "vlc"))))
+
+(use-package dired
+  :straight (:type built-in)) ;; dired is part of Emacs, no need to download
+  ;;:hook ((dired-mode . all-the-icons-dired-mode)))
+        ;; (dired-mode . (lambda () (dired-hide-details-mode t)))))
+
 
 (use-package peep-dired ;; to preview the content of what you're scrolling dowm in Dired
   :after dired ;; ensure it loads after dired
@@ -188,7 +205,6 @@ This package implements hiding or abbreviation of the modeline displays (lighter
     (evil-define-key 'normal peep-dired-mode-map (kbd "k") 'peep-dired-prev-file)
 )
 #+end_src
-
 
 * DRAG-STUFF
 [[https://github.com/rejeep/drag-stuff.el][Drag Stuff]] is a minor mode for Emacs that makes it possible to drag stuff (words, region, lines) around in Emacs.  When 'drag-stuff-define-keys' is enabled, then the following keybindings are set: M-up, M-down, M-left, and M-right.
@@ -213,7 +229,7 @@ This package implements hiding or abbreviation of the modeline displays (lighter
   (define-key ediff-mode-map "k" 'ediff-previous-difference))
 
 (add-hook 'ediff-mode-hook 'dt-ediff-hook)
-#+end_src 
+#+end_src
 
 * ELFEED
 An RSS newsfeed reader for Emacs.  Move through the articles with 'j/k'.  Move through the stories with 'CTRL j/k' when in other frame.
@@ -223,31 +239,18 @@ An RSS newsfeed reader for Emacs.  Move through the articles with 'j/k'.  Move t
   :config
   (setq elfeed-search-feed-face ":foreground #ffffff :weight bold"
         elfeed-feeds (quote
-                       (("https://www.reddit.com/r/linux.rss" reddit linux)
-                        ("https://www.reddit.com/r/commandline.rss" eddit commandline)
-                        ("https://www.reddit.com/r/distrotube.rss" reddit distrotube)
-                        ("https://www.reddit.com/r/emacs.rss" reddit emacs)
-                        ("https://www.gamingonlinux.com/article_rss.php" gaming linux)
-                        ("https://hackaday.com/blog/feed/" hackaday linux)
-                        ("https://opensource.com/feed" opensource linux)
-                        ("https://linux.softpedia.com/backend.xml" softpedia linux)
-                        ("https://itsfoss.com/feed/" itsfoss linux)
-                        ("https://www.zdnet.com/topic/linux/rss.xml" zdnet linux)
-                        ("https://www.phoronix.com/rss.php" phoronix linux)
-                        ("http://feeds.feedburner.com/d0od" omgubuntu linux)
-                        ("https://www.computerworld.com/index.rss" computerworld linux)
-                        ("https://www.networkworld.com/category/linux/index.rss" networkworld linux)
-                        ("https://www.techrepublic.com/rssfeeds/topic/open-source/" techrepublic linux)
-                        ("https://betanews.com/feed" betanews linux)
-                        ("http://lxer.com/module/newswire/headlines.rss" lxer linux)
-                        ("https://distrowatch.com/news/dwd.xml" distrowatch linux)))))
-
+                       (("https://www.lemonde.fr/rss/une.xml" news)
+                        ("https://www.lefigaro.fr/rss/figaro_flash-actu.xml" news)
+                        ("https://www.eff.org/rss/updates.xml" eff)
+			  ("https://stallman.org/rss/rss.xml" news)
+                        ("https://reliefweb.int/jobs/rss.xml?advanced-search=%28C158.C241%29" relief jobs ukraine)))))
 
 (use-package elfeed-goodies
   :init
   (elfeed-goodies/setup)
   :config
-  (setq elfeed-goodies/entry-pane-size 0.5))
+ (setq elfeed-goodies/entry-pane-size 0.5))
+
 #+end_src
 
 * ERADIO
@@ -280,6 +283,14 @@ An RSS newsfeed reader for Emacs.  Move through the articles with 'j/k'.  Move t
 #+end_src
 
 
+
+* ESUP
+[[https://github.com/jschaf/esup][esup]] is a benchmark Emacs Startup time.
+#+begin_src emacs-lisp
+(use-package esup
+  :ensure t)
+#+end_src
+
 * EVIL
 [[https://github.com/emacs-evil/evil][Evil]] is an extensible vi/vim layer for Emacs.  Because...let's face it.  The Vim keybindings are just plain better.
 
@@ -298,15 +309,15 @@ An RSS newsfeed reader for Emacs.  Move through the articles with 'j/k'.  Move t
   :after evil
   :config
   ;; Do not uncomment this unless you want to specify each and every mode
-  ;; that evil-collection should works with.  The following line is here 
-  ;; for documentation purposes in case you need it.  
+  ;; that evil-collection should works with.  The following line is here
+  ;; for documentation purposes in case you need it.
   ;; (setq evil-collection-mode-list '(calendar dashboard dired ediff info magit ibuffer))
   (add-to-list 'evil-collection-mode-list 'help) ;; evilify help mode
   (evil-collection-init))
 
 (use-package evil-tutor)
 
-;; Using RETURN to follow links in Org/Evil 
+;; Using RETURN to follow links in Org/Evil
 ;; Unmap keys in 'evil-maps if not done, (setq org-return-follows-link t) will not work
 (with-eval-after-load 'evil-maps
   (define-key evil-motion-state-map (kbd "SPC") nil)
@@ -315,8 +326,6 @@ An RSS newsfeed reader for Emacs.  Move through the articles with 'j/k'.  Move t
 ;; Setting RETURN key in org-mode to follow links
   (setq org-return-follows-link  t)
 #+end_src
-
-
 
 * FLYCHECK
 Install =luacheck= from your Linux distro's repositories for flycheck to work correctly with lua files.  Install =python-pylint= for flycheck to work with python files.  Haskell works with flycheck as long as =haskell-ghc= or =haskell-stack-ghc= is installed.  For more information on language support for flycheck, [[https://www.flycheck.org/en/latest/languages.html][read this]].
@@ -329,7 +338,6 @@ Install =luacheck= from your Linux distro's repositories for flycheck to work co
   :init (global-flycheck-mode))
 #+end_src
 
-
 * FONTS
 Defining the various fonts that Emacs will use.
 
@@ -341,7 +349,7 @@ Defining the various fonts that Emacs will use.
   :weight 'bold)
 (set-face-attribute 'variable-pitch nil
   :font "Ubuntu"
-  :height 120
+  :height 90
   :weight 'medium)
 (set-face-attribute 'fixed-pitch nil
   :font "JetBrainsMonoNerdFont"
@@ -364,7 +372,6 @@ Defining the various fonts that Emacs will use.
 (setq-default line-spacing 0.12)
 #+end_src
 
-
 ** Zooming In/Out
 You can use the bindings CTRL plus =/- for zooming in/out.  You can also use CTRL plus the mouse wheel for zooming in/out.
 
@@ -375,13 +382,12 @@ You can use the bindings CTRL plus =/- for zooming in/out.  You can also use CTR
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 #+end_src
 
-
 * GENERAL KEYBINDINGS
 #+begin_src emacs-lisp
 (use-package general
   :config
   (general-evil-setup)
-  
+
   ;; set up 'SPC' as the global leader key
   (general-create-definer dt/leader-keys
     :states '(normal insert visual emacs)
@@ -425,7 +431,7 @@ You can use the bindings CTRL plus =/- for zooming in/out.  You can also use CTR
     "d w" '(wdired-change-to-wdired-mode :wk "Writable dired"))
 
   (dt/leader-keys
-    "e" '(:ignore t :wk "Ediff/Eshell/Eval/EWW")    
+    "e" '(:ignore t :wk "Ediff/Eshell/Eval/EWW")
     "e b" '(eval-buffer :wk "Evaluate elisp in buffer")
     "e d" '(eval-defun :wk "Evaluate defun containing or after point")
     "e e" '(eval-expression :wk "Evaluate and elisp expression")
@@ -439,17 +445,17 @@ You can use the bindings CTRL plus =/- for zooming in/out.  You can also use CTR
     "e w" '(eww :which-key "EWW emacs web wowser"))
 
   (dt/leader-keys
-    "f" '(:ignore t :wk "Files")    
+    "f" '(:ignore t :wk "Files")
     "f c" '((lambda () (interactive)
-              (find-file "~/.config/emacs/config.org")) 
+              (find-file "~/.config/emacs/config.org"))
             :wk "Open emacs config.org")
     "f e" '((lambda () (interactive)
-              (dired "~/.config/emacs/")) 
+              (dired "~/.config/emacs/"))
             :wk "Open user-emacs-directory in dired")
     "f d" '(find-grep-dired :wk "Search for string in files in DIR")
     "f g" '(counsel-grep-or-swiper :wk "Search for string current file")
     "f i" '((lambda () (interactive)
-              (find-file "~/.config/emacs/init.el")) 
+              (find-file "~/.config/emacs/init.el"))
             :wk "Open emacs init.el")
     "f j" '(counsel-file-jump :wk "Jump to a file below current directory")
     "f l" '(counsel-locate :wk "Locate a file")
@@ -458,16 +464,16 @@ You can use the bindings CTRL plus =/- for zooming in/out.  You can also use CTR
     "f U" '(sudo-edit :wk "Sudo edit file"))
 
   (dt/leader-keys
-    "g" '(:ignore t :wk "Git")    
+    "g" '(:ignore t :wk "Git")
     "g /" '(magit-displatch :wk "Magit dispatch")
     "g ." '(magit-file-displatch :wk "Magit file dispatch")
     "g b" '(magit-branch-checkout :wk "Switch branch")
-    "g c" '(:ignore t :wk "Create") 
+    "g c" '(:ignore t :wk "Create")
     "g c b" '(magit-branch-and-checkout :wk "Create branch and checkout")
     "g c c" '(magit-commit-create :wk "Create commit")
     "g c f" '(magit-commit-fixup :wk "Create fixup commit")
     "g C" '(magit-clone :wk "Clone repo")
-    "g f" '(:ignore t :wk "Find") 
+    "g f" '(:ignore t :wk "Find")
     "g f c" '(magit-show-commit :wk "Show commit")
     "g f f" '(magit-find-file :wk "Magit find file")
     "g f g" '(magit-find-git-config-file :wk "Find gitconfig file")
@@ -539,11 +545,11 @@ You can use the bindings CTRL plus =/- for zooming in/out.  You can also use CTR
     "o f" '(make-frame :wk "Open buffer in new frame")
     "o F" '(select-frame-by-name :wk "Select frame by name"))
 
-  ;; projectile-command-map already has a ton of bindings 
+  ;; projectile-command-map already has a ton of bindings
   ;; set for us, so no need to specify each individually.
   (dt/leader-keys
     "p" '(projectile-command-map :wk "Projectile"))
-  
+
   (dt/leader-keys
     "r" '(:ignore t :wk "Radio")
     "r p" '(eradio-play :wk "Eradio play")
@@ -592,15 +598,13 @@ You can use the bindings CTRL plus =/- for zooming in/out.  You can also use CTR
     "w d" '(downcase-word :wk "Downcase word")
     "w u" '(upcase-word :wk "Upcase word")
     "w =" '(count-words :wk "Count words/lines for buffer"))
+
 )
 #+end_src
-
 
 * GIT PROGRAMS
 ** Git Time Machine
 [[https://github.com/emacsmirror/git-timemachine][git-timemachine]] is a program that allows you to move backwards and forwards through a file's commits.  'SPC g t' will open the time machine on a file if it is in a git repo.  Then, while in normal mode, you can use 'CTRL-j' and 'CTRL-k' to move backwards and forwards through the commits.
-
-
 #+begin_src emacs-lisp
 (use-package git-timemachine
   :after git-timemachine
@@ -610,7 +614,6 @@ You can use the bindings CTRL plus =/- for zooming in/out.  You can also use CTR
     (evil-define-key 'normal git-timemachine-mode-map (kbd "C-k") 'git-timemachine-show-next-revision)
 )
 #+end_src
-
 
 ** Magit
 [[https://magit.vc/manual/][Magit]] is a full-featured git client for Emacs.
@@ -646,7 +649,7 @@ Adding highlights to TODO and related words.
 (use-package counsel
   :after ivy
   :diminish
-  :config 
+  :config
     (counsel-mode)
     (setq ivy-initial-inputs-alist nil)) ;; removes starting ^ regex in M-x
 
@@ -681,7 +684,6 @@ Adding highlights to TODO and related words.
 
 #+end_src
 
-
 * LANGUAGE SUPPORT
 Emacs has built-in programming language modes for Lisp, Scheme, DSSSL, Ada, ASM, AWK, C, C++, Fortran, Icon, IDL (CORBA), IDLWAVE, Java, Javascript, M4, Makefiles, Metafont, Modula2, Object Pascal, Objective-C, Octave, Pascal, Perl, Pike, PostScript, Prolog, Python, Ruby, Simula, SQL, Tcl, Verilog, and VHDL.  Other languages will require you to install additional modes.
 
@@ -689,9 +691,8 @@ Emacs has built-in programming language modes for Lisp, Scheme, DSSSL, Ada, ASM,
 (use-package php-mode)
 #+end_src
 
-
 * MINIBUFFER ESCAPE
-By default, Emacs requires you to hit ESC three times to escape quit the minibuffer.  
+By default, Emacs requires you to hit ESC three times to escape quit the minibuffer.
 
 #+begin_src emacs-lisp
 (global-set-key [escape] 'keyboard-escape-quit)
@@ -728,7 +729,7 @@ Neotree is a file tree viewer.  When you open neotree, it jumps to the current f
         neo-window-width 55
         neo-window-fixed-size nil
         inhibit-compacting-font-caches t
-        projectile-switch-project-action 'neotree-projectile-action) 
+        projectile-switch-project-action 'neotree-projectile-action)
         ;; truncate long file names in neotree
         (add-hook 'neo-after-create-hook
            #'(lambda (_)
@@ -738,7 +739,6 @@ Neotree is a file tree viewer.  When you open neotree, it jumps to the current f
                  (make-local-variable 'auto-hscroll-mode)
                  (setq auto-hscroll-mode nil)))))
 #+end_src
-
 
 * ORG MODE
 ** Diminish Org Indent Mode
@@ -785,7 +785,7 @@ Org-tempo is not a separate package but a module within org that can be enabled.
 | <s                     | '#+BEGIN_SRC' … '#+END_SRC'             |
 | <v                     | '#+BEGIN_VERSE' … '#+END_VERSE'         |
 
-#+begin_src emacs-lisp 
+#+begin_src emacs-lisp
 (require 'org-tempo)
 #+end_src
 
@@ -802,7 +802,6 @@ Allows us to create a Table of Contents in our Org docs.
     :commands toc-org-enable
     :init (add-hook 'org-mode-hook 'toc-org-enable))
 #+end_src
-
 
 * PDFs
 [[https://github.com/vedang/pdf-tools][pdf-tools]] is a replacement of DocView for viewing PDF files inside Emacs.  It uses the =poppler= library, which also means that 'pdf-tools' can by used to modify PDFs.  I use to disable 'display-line-numbers-mode' in 'pdf-view-mode' because line numbers crash it.
@@ -825,9 +824,8 @@ Allows us to create a Table of Contents in our Org docs.
                                                          (doom-modeline-mode -1)))
 #+end_src
 
-
 * PERSPECTIVE
-[[https://github.com/nex3/perspective-el][Perspective]] provides multiple named workspaces (or "perspectives") in Emacs, similar to multiple desktops in window managers.  Each perspective has its own buffer list and its own window layout, along with some other isolated niceties, like the [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Xref.html][xref]] ring.
+[[https://github.com/nex3/perspective-el][Perspective]] provides multiple named workspaces (or "perspectives") in Emacs, similar to multiple desktops in window managers.  Each perspective has its own buffer list and its own window layout, along with some other isolated niceties, like the [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Xref.html][xref]] ring, making it easy to work on many separate projects without getting lost in all the buffers.  Switching to a perspective activates its window configuration, and when in a perspective, only its buffers are available (by default).
 
 #+begin_src emacs-lisp
 (use-package perspective
@@ -836,7 +834,7 @@ Allows us to create a Table of Contents in our Org docs.
   ;; I'm only setting the additional binding because setting it
   ;; helps suppress an annoying warning message.
   (persp-mode-prefix-key (kbd "C-c M-p"))
-  :init 
+  :init
   (persp-mode)
   :config
   ;; Sets a file to write to when we save states
@@ -852,7 +850,6 @@ Allows us to create a Table of Contents in our Org docs.
 ;; Automatically save perspective states to file when Emacs exits.
 (add-hook 'kill-emacs-hook #'persp-state-save)
 #+end_src
-
 
 * PROJECTILE
 [[https://github.com/bbatsov/projectile][Projectile]] is a project interaction library for Emacs.  It should be noted that many projectile commands do not work if you have set "fish" as the "shell-file-name" for Emacs.  I had initially set "fish" as the "shell-file-name" in the Vterm section of this config, but oddly enough I changed it to "bin/sh" and projectile now works as expected, and Vterm still uses "fish" because my default user "sh" on my Linux system is "fish".
@@ -872,9 +869,8 @@ Adding rainbow coloring to parentheses.
          (clojure-mode . rainbow-delimiters-mode)))
 #+end_src
 
-
 * RAINBOW MODE
-Display the actual color as a background for any hex color value (ex. #ffffff).  The code block below enables rainbow-mode in all programming modes (prog-mode) as well as org-mode, which is why rainbow works in this document.  
+Display the actual color as a background for any hex color value (ex. #ffffff).  The code block below enables rainbow-mode in all programming modes (prog-mode) as well as org-mode, which is why rainbow works in this document.
 
 #+begin_src emacs-lisp
 (use-package rainbow-mode
@@ -896,9 +892,10 @@ The following settings are simple modes that are enabled (or disabled) so that E
                    `(lambda (c)
                   (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))))
 (global-auto-revert-mode t)  ;; Automatically show changes if the file has changed
+(setq display-line-numbers-type 'relative) ;; Set relative line numbers  Important!! : This settings needs to set before "enabling global-display-line-numbers-mode"
 (global-display-line-numbers-mode 1) ;; Display line numbers
 (global-visual-line-mode t)  ;; Enable truncated lines
-(menu-bar-mode -1)           ;; Disable the menu bar 
+(menu-bar-mode -1)           ;; Disable the menu bar
 (scroll-bar-mode -1)         ;; Disable the scroll bar
 (tool-bar-mode -1)           ;; Disable the tool bar
 (setq org-edit-src-content-indentation 0) ;; Set src block automatic indent to 0 instead of 2.
@@ -908,7 +905,6 @@ The following settings are simple modes that are enabled (or disabled) so that E
 (pixel-scroll-precision-mode 1) ;; Enable pixel-scroll-precision-mode by default
 (add-to-list 'default-frame-alist '(fullscreen . maximized)) ;;Maximize or fullscreen Emacs on startup
 #+end_src
-
 
 * SHELLS AND TERMINALS
 In my configs, all of my shells (bash, fish, zsh and the ESHELL) require my shell-color-scripts-git package to be installed.  On Arch Linux, you can install it from the AUR.  Otherwise, go to my shell-color-scripts repository on GitLab to get it.
@@ -952,8 +948,7 @@ Vterm is a terminal emulator within Emacs.  The 'shell-file-name' setting sets t
       vterm-max-scrollback 5000))
 #+end_src
 
-
-** Vterm-Toggle 
+** Vterm-Toggle
 [[https://github.com/jixiuf/vterm-toggle][vterm-toggle]] toggles between the vterm buffer and whatever buffer you are editing.
 
 #+begin_src emacs-lisp
@@ -987,8 +982,6 @@ Vterm is a terminal emulator within Emacs.  The 'shell-file-name' setting sets t
 (use-package sudo-edit)
 #+end_src
 
-
-
 * THEME
 The first line below designates the directory where will place all of our custom-made themes, which I have created only one (dtmacs).  You can create your own Emacs themes with the help of the [[https://emacsfodder.github.io/emacs-theme-editor/][Emacs Theme Editor]].  I am also installing =doom-themes= because it contains a huge collection of themes.  M-x load-theme will list all of the themes available.
 
@@ -999,27 +992,28 @@ The first line below designates the directory where will place all of our custom
   :config
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  ;; Sets the default theme to load!!! 
+  ;; Sets the default theme to load!!!
   (load-theme 'doom-one t)
   ;; Enable custom neotree theme (all-the-icons must be installed!)
   (doom-themes-neotree-config)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
+  ;; Set line numbers color
+  (custom-set-faces
+   '(line-number ((t (:foreground "#A0A0A0"))))
+   '(line-number-current-line ((t (:foreground "#00CED1" :weight bold)))))
 #+end_src
 
-
 * TLDR
-
 #+begin_src emacs-lisp
 (use-package tldr)
 #+end_src
 
-
 * WHICH-KEY
 #+begin_src emacs-lisp
 (use-package which-key
-  :init
-    (which-key-mode 1)
+  ;; :init
+  ;;  (which-key-mode 1)
   :diminish
   :config
   (setq which-key-side-window-location 'bottom
@@ -1031,12 +1025,13 @@ The first line below designates the directory where will place all of our custom
 	  which-key-min-display-lines 6
 	  which-key-side-window-slot -10
 	  which-key-side-window-max-height 0.25
-	  which-key-idle-delay 0.8
+	  which-key-idle-delay 0.1
+	  which-key-idle-secondary-delay 0.05 ;; this value needs to be set before the mode is activated.
 	  which-key-max-description-length 40
 	  which-key-allow-imprecise-window-fit nil
 	  which-key-separator " → " ))
+	  (which-key-mode 1)
 #+end_src
-
 
 * TEST
 #+begin_src emacs-lisp
@@ -1059,13 +1054,13 @@ The first line below designates the directory where will place all of our custom
     (browse-url
      (concat "https://github.com/search?l=" language
              "&type=code&q=" code))))
-  
+
 (defun dm-search ()
   "Search various search engines."
   (interactive)
   (let ((engine (completing-read
                  "Search Engine: "
-                 '("Arch Wiki" 
+                 '("Arch Wiki"
                    "Bing"
                    "Google"
                    "Wikipedia")))
@@ -1074,12 +1069,12 @@ The first line below designates the directory where will place all of our custom
       (browse-url
        (concat "https://www.google.com/search?q=" query)))))
 
-(defun dt/key-value-completing (choice)                                     
+(defun dt/key-value-completing (choice)
   (interactive
    (list
-    (let ((completions '(("1" "One") 
+    (let ((completions '(("1" "One")
                          ("2" "Two")
-                         ("3" "Three"))))              
+                         ("3" "Three"))))
       (cadr (assoc (completing-read "Choose: " completions) completions)))))
   (message "You choose `%s'" choice))
 #+end_src
