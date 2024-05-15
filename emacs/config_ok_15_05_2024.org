@@ -1027,7 +1027,7 @@ The first line below designates the directory where will place all of our custom
 	  which-key-min-display-lines 6
 	  which-key-side-window-slot -10
 	  which-key-side-window-max-height 0.25
-        which-key-idle-delay 0.1
+          which-key-idle-delay 0.1
 	  which-key-idle-secondary-delay 0.05 ;; this value needs to be set before the mode is activated.
 	  which-key-max-description-length 40
 	  which-key-allow-imprecise-window-fit nil
