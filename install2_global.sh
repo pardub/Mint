@@ -347,6 +347,11 @@ export CC="gcc-11"
 make -j 8
 sudo make install
 
+# For convenience, you may want to create a symlink to 'local/share/Trash' in your home directory:
+
+cd ~/
+ln -s ~/.local/share/Trash .
+
 
 # +----------------+
 # | Virtualization |
