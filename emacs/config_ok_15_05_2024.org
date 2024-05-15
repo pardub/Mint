@@ -16,6 +16,7 @@
 - [[#dashboard][DASHBOARD]]
 - [[#diminish][DIMINISH]]
 - [[#dired][DIRED]]
+  - [[#making-deleted-files-go-to-trash-can][Making deleted files go to Trash can]]
 - [[#drag-stuff][DRAG-STUFF]]
 - [[#ediff][EDIFF]]
 - [[#elfeed][ELFEED]]
@@ -180,7 +181,6 @@ This package implements hiding or abbreviation of the modeline displays (lighter
 
 * DIRED
 #+begin_src emacs-lisp
-
 (use-package dired-open
   :after dired ;; ensure it loads after dired
   :config
@@ -195,19 +195,32 @@ This package implements hiding or abbreviation of the modeline displays (lighter
   ;;:hook ((dired-mode . all-the-icons-dired-mode)))
         ;; (dired-mode . (lambda () (dired-hide-details-mode t)))))
 
+;; (evil-define-key 'normal dired-mode-map  (kbd "M-RET") 'dired-display-file) ;; added 15/05/2024 TESTING
 
 (use-package peep-dired ;; to preview the content of what you're scrolling dowm in Dired
   :after dired ;; ensure it loads after dired
   :hook (evil-normalize-keymaps . peep-dired-hook)
   :config
+    (evil-define-key 'normal dired-mode-map (kbd "M-RET") 'dired-display-file)
     (evil-define-key 'normal dired-mode-map (kbd "h") 'dired-up-directory)
     (evil-define-key 'normal dired-mode-map (kbd "l") 'dired-open-file) ; use dired-find-file instead if not using dired-open package
     (evil-define-key 'normal peep-dired-mode-map (kbd "j") 'peep-dired-next-file)
     (evil-define-key 'normal peep-dired-mode-map (kbd "k") 'peep-dired-prev-file)
 )
 
-
 #+end_src
+
+** Making deleted files go to Trash can 
+#+begin_src emacs-lisp
+(setq delete-by-moving-to-trash t
+      trash-directory "~/.local/share/Trash/files/")
+#+end_src
+
+=NOTE=: For convenience, you may want to create a symlink to 'local/share/Trash' in your home directory:
+#+begin_example
+cd ~/
+ln -s ~/.local/share/Trash .
+#+end_example
 
 * DRAG-STUFF
 [[https://github.com/rejeep/drag-stuff.el][Drag Stuff]] is a minor mode for Emacs that makes it possible to drag stuff (words, region, lines) around in Emacs.  When 'drag-stuff-define-keys' is enabled, then the following keybindings are set: M-up, M-down, M-left, and M-right.
@@ -1027,7 +1040,7 @@ The first line below designates the directory where will place all of our custom
 	  which-key-min-display-lines 6
 	  which-key-side-window-slot -10
 	  which-key-side-window-max-height 0.25
-          which-key-idle-delay 0.1
+        which-key-idle-delay 0.1
 	  which-key-idle-secondary-delay 0.05 ;; this value needs to be set before the mode is activated.
 	  which-key-max-description-length 40
 	  which-key-allow-imprecise-window-fit nil
