@@ -1,3 +1,4 @@
+
 #+TITLE: GNU EMACS Config
 #+AUTHOR: Derek Taylor (DT)
 #+DESCRIPTION: Personal Emacs config
@@ -11,7 +12,7 @@
 - [[#all-the-icons][ALL THE ICONS]]
 - [[#amx][AMX]]
 - [[#backup][BACKUP]]
-- [[#beacon][BEACON]]
+- [[#beacon-cursor][BEACON (cursor)]]
 - [[#company][COMPANY]]
 - [[#dashboard][DASHBOARD]]
 - [[#diminish][DIMINISH]]
@@ -110,7 +111,7 @@ By default, Emacs creates automatic backups of files in their original directori
 (setq backup-directory-alist '((".*" . "~/.local/share/Trash/files")))
 #+end_src
 
-* BEACON
+* BEACON (cursor)
 Never lose your cursor again
 #+begin_src emacs-lisp
 (use-package beacon
@@ -122,6 +123,14 @@ Never lose your cursor again
  ;; (beacon-blink-when-point-moves-vertically)
  ;; :config
   (beacon-mode 1))
+
+;; Disable beacon mode in eshell
+(defun my-disable-beacon-in-eshell ()
+  "Disable beacon mode in eshell."
+  (beacon-mode -1))
+
+(add-hook 'eshell-mode-hook 'my-disable-beacon-in-eshell)
+
 #+end_src
 
 * COMPANY
@@ -208,6 +217,8 @@ This package implements hiding or abbreviation of the modeline displays (lighter
     (evil-define-key 'normal peep-dired-mode-map (kbd "k") 'peep-dired-prev-file)
 )
 
+;; (setq dired-listing-switches "-ahl -v --group-directories-first") ;; Customize Dired listing
+
 #+end_src
 
 ** Making deleted files go to Trash can 
@@ -215,12 +226,6 @@ This package implements hiding or abbreviation of the modeline displays (lighter
 (setq delete-by-moving-to-trash t
       trash-directory "~/.local/share/Trash/files/")
 #+end_src
-
-=NOTE=: For convenience, you may want to create a symlink to 'local/share/Trash' in your home directory:
-#+begin_example
-cd ~/
-ln -s ~/.local/share/Trash .
-#+end_example
 
 * DRAG-STUFF
 [[https://github.com/rejeep/drag-stuff.el][Drag Stuff]] is a minor mode for Emacs that makes it possible to drag stuff (words, region, lines) around in Emacs.  When 'drag-stuff-define-keys' is enabled, then the following keybindings are set: M-up, M-down, M-left, and M-right.
@@ -952,6 +957,15 @@ Eshell is an Emacs 'shell' that is written in Elisp.
         eshell-scroll-to-bottom-on-input t
         eshell-destroy-buffer-when-process-dies t
         eshell-visual-commands'("bash" "fish" "htop" "ssh" "top" "zsh"))
+
+;; Disable line numbers in eshell
+(add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode -1)))
+
+;Clear the eshell buffer.
+(defun eshell/clear ()
+(intercative)
+   (let ((eshell-buffer-maximum-lines 0)) (eshell-truncate-buffer)))
+
 #+end_src
 
 ** Vterm
