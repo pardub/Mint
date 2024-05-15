@@ -961,11 +961,6 @@ Eshell is an Emacs 'shell' that is written in Elisp.
 ;; Disable line numbers in eshell
 (add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode -1)))
 
-;Clear the eshell buffer.
-(defun eshell/clear ()
-(intercative)
-   (let ((eshell-buffer-maximum-lines 0)) (eshell-truncate-buffer)))
-
 #+end_src
 
 ** Vterm
