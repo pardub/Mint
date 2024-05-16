@@ -99,7 +99,27 @@ By default, Emacs creates automatic backups of files in their original directori
 
 #+begin_src emacs-lisp
 (setq backup-directory-alist '((".*" . "~/.local/share/Trash/files")))
+#+end_src
 
+* BEACON (cursor)
+Never lose your cursor again
+#+begin_src emacs-lisp
+(use-package beacon
+  :custom
+ ;; (beacon-blink-when-window-scrolls t)
+ ;; (beacon-color 0.5)
+ ;; (beacon-blink-duration 1)
+ ;; (beacon-blink-delay 1)
+ ;; (beacon-blink-when-point-moves-vertically)
+ ;; :config
+  (beacon-mode 1))
+
+;; Disable beacon mode in eshell
+(defun my-disable-beacon-in-eshell ()
+  "Disable beacon mode in eshell."
+  (beacon-mode -1))
+
+(add-hook 'eshell-mode-hook 'my-disable-beacon-in-eshell)
 #+end_src
 
 * COMPANY
@@ -162,11 +182,11 @@ This package implements hiding or abbreviation of the modeline displays (lighter
 #+begin_src emacs-lisp
 (use-package dired-open
   :config
-  (setq dired-open-extensions '(("gif" . "sxiv")
-                                ("jpg" . "sxiv")
-                                ("png" . "sxiv")
-                                ("mkv" . "mpv")
-                                ("mp4" . "mpv"))))
+  (setq dired-open-extensions '(("gif" . "display")
+                                ("jpg" . "display")
+                                ("png" . "display")
+                                ("mkv" . "vlc")
+                                ("mp4" . "vlc"))))
 
 (use-package peep-dired
   :after dired
@@ -178,6 +198,12 @@ This package implements hiding or abbreviation of the modeline displays (lighter
     (evil-define-key 'normal peep-dired-mode-map (kbd "k") 'peep-dired-prev-file)
 )
 
+#+end_src
+
+** Making deleted files go to Trash can 
+#+begin_src emacs-lisp
+(setq delete-by-moving-to-trash t
+      trash-directory "~/.local/share/Trash/files/")
 #+end_src
 
 * DRAG-STUFF
@@ -269,6 +295,13 @@ An RSS newsfeed reader for Emacs.  Move through the articles with 'j/k'.  Move t
                           ("PopStars" . "https://zeno.fm/radio/popstars/")
                           ("RadioMetal" . "https://zeno.fm/radio/radio-metal/")
                           ("RocknRoll Radio" . "https://zeno.fm/radio/rocknroll-radio994c7517qs8uv/"))))
+#+end_src
+
+* ESUP
+[[https://github.com/jschaf/esup][esup]] is a benchmark Emacs Startup time.
+#+begin_src emacs-lisp
+(use-package esup
+  :ensure t)
 #+end_src
 
 * EVIL
