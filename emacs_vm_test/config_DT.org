@@ -84,6 +84,16 @@ This is an icon set that can be used with dashboard, dired, ibuffer and other Em
   :hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
 #+end_src
 
+* AMX
+An alternative M-x interface for Emacs that provides a convenient interface to your recently and most frequently used commands.
+
+#+begin_src emacs-lisp
+(use-package amx
+  :ensure t
+  :config
+    (amx-mode 1))
+#+end_src
+
 * BACKUP 
 By default, Emacs creates automatic backups of files in their original directories, such "file.el" and the backup "file.el~".  This leads to a lot of clutter, so let's tell Emacs to put all backups that it creates in the =TRASH= directory.
 
