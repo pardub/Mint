@@ -20,4 +20,4 @@
 (setq straight-use-package-by-default t)
 (setq init-file-debug t)
 
-(provide 'straight-setup)
+(provide 'elpaca-setup)
