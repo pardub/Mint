@@ -70,7 +70,6 @@ To keep this =config.org= a reasonable length, I have moved a lot of code to ind
 #+begin_src emacs-lisp
 (require 'elpaca-setup)  ;; The Elpaca Package Manager
 (require 'buffer-move)   ;; Buffer-move for better window management
-(require 'app-launchers) ;; Use emacs as a run launcher like dmenu (experimental)
 #+end_src
 
 * ALL THE ICONS
