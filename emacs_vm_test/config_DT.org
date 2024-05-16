@@ -693,18 +693,6 @@ The modeline is the bottom status bar that appears in Emacs windows.  While you 
 
 #+end_src
 
-* MU4E EMAIL
-=mu4e= is the email client in Emacs.  It requires that 'mu' and 'isync' be installed on your Linux system.  Here is a great tutorial about setting up mu4e: https://f-santos.gitlab.io/2020-04-24-mu4e.html  
-
-NOTE For privacy reasons, I'm importing all of my mu4e settings from a separate file which is not public.
-
-#+begin_src emacs-lisp
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
-(require 'mu4e)
-(load-file "~/nc/emacs-stuff/email-mu4e.el")
-
-#+end_src
-
 * NEOTREE
 Neotree is a file tree viewer.  When you open neotree, it jumps to the current file thanks to neo-smart-open.  The neo-window-fixed-size setting makes the neotree width be adjustable.  NeoTree provides following themes: classic, ascii, arrow, icons, and nerd.  Theme can be config'd by setting "two" themes for neo-theme: one for the GUI and one for the terminal.  I like to use 'SPC t' for 'toggle' keybindings, so I have used 'SPC t n' for toggle-neotree.
 
