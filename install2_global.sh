@@ -124,6 +124,12 @@ flatpak install flathub io.crow_translate.CrowTranslate -y
 # +---------+
 
 
+# Rust install
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# A simple, fast and user-friendly alternative to 'find' 
+cargo install fd-find
+
 
 # add repo to install Foliate ( ebook reader)
 sudo add-apt-repository ppa:apandada1/foliate -y
