@@ -478,8 +478,7 @@ sudo npm install -g marked
 
 # To delete Doom Emacs error "The installed ripgrep binary was not built with support for PCRE lookaheads"
 sudo apt remove ripgrep -y
-curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
-sudo dpkg -i ripgrep_13.0.0_amd64.deb
+
 
 # To use Vterm in Emacs
 sudo apt install libvterm-dev -y
@@ -509,6 +508,36 @@ pip install fawkes
 # Install pgcli
 sudo apt install libpq-dev python-dev-is-python3 -y
 pip install pgcli
+
+# +------------+
+# |  Ripgrep   |
+# +------------+
+
+cd /tmp
+# Ensure necessary tools are installed
+if ! command -v cargo &> /dev/null; then
+    echo "Cargo is required. Please install Rust and Cargo and try again."
+    exit 1
+fi
+
+# Install PCRE2 development library
+sudo apt update
+sudo apt install -y libpcre2-dev
+
+# Clone the ripgrep repository
+git clone https://github.com/BurntSushi/ripgrep.git
+cd ripgrep
+
+# Build ripgrep with PCRE2 support
+cargo build --release --features 'pcre2'
+
+# Install the built binary
+sudo cp target/release/rg /usr/local/bin/
+
+# Verify installation
+rg --version
+
+echo "ripgrep with PCRE2 support installed successfully."
 
 
 # sudo reboot
