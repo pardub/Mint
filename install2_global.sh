@@ -509,6 +509,14 @@ pip install fawkes
 sudo apt install libpq-dev python-dev-is-python3 -y
 pip install pgcli
 
+
+# +---------+
+# | Python  |
+# +---------+
+
+pip install pylint
+
+
 # +------------+
 # |  Ripgrep   |
 # +------------+
