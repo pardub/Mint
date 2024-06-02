@@ -1224,7 +1224,6 @@ Display the actual color as a background for any hex color value (ex. #ffffff). 
 ;;(setq pop-up-windows nil)    ;; No popup windows
 (pixel-scroll-precision-mode 1) ;; Enable pixel-scroll-precision-mode by default
 (add-to-list 'default-frame-alist '(fullscreen . maximized)) ;;Maximize or fullscreen Emacs on startup
-(global-set-key [escape] 'keyboard-escape-quit) ;;By default, Emacs requires you to hit ESC three times to escape quit the minibuffer.
  ;; Save Place: Remember the cursor position in files.
  (save-place-mode 1)
 
