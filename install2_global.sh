@@ -516,7 +516,6 @@ pip install pgcli
 
 pip install pylint
 
-
 # +------------+
 # |  Ripgrep   |
 # +------------+
@@ -549,5 +548,15 @@ echo "ripgrep with PCRE2 support installed successfully."
 
 
 # sudo reboot
+
+# +------------------------+
+# |  Battery optimization  |
+# +------------------------+
+
+sudo git clone https://github.com/AdnanHodzic/auto-cpufreq.git /opt/auto-cpufreq
+cd /opt/auto-cpufreq
+sudo ./auto-cpufreq-installer
+sudo auto-cpufreq --install
+
 
 
