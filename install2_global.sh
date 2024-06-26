@@ -249,8 +249,8 @@ sudo apt install qtpass -y
 sudo apt install openresolv -y
 
 # Add Repo Veracrypt
-sudo add-apt-repository ppa:unit193/encryption -y
-sudo apt install veracrypt -y
+#sudo add-apt-repository ppa:unit193/encryption -y
+#sudo apt install veracrypt -y
 
 # Install pip3
 sudo apt install python3-pip -y
