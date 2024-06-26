@@ -204,6 +204,7 @@ sudo apt install borgbackup -y
 sudo apt install borgmatic -y
 
 # Collaborative cheatsheets for console commands
+sudo apt install npm -y
 sudo npm install -g tldr
 
 # to update tldr
