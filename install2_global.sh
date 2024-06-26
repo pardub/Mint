@@ -1,6 +1,6 @@
 #!/bin/bash -xev
 mkdir -p ~/.ssh/config
-
+## See for cargo install with script to bypass questions during installation.
 
 # +--------------+
 # | Flatpak apps |
