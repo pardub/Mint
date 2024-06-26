@@ -1,4 +1,5 @@
 #!/bin/bash -xev
+mkdir -p ~/.ssh
 
 
 # +--------------+
