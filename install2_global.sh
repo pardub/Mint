@@ -1,5 +1,5 @@
 #!/bin/bash -xev
-mkdir -p ~/.ssh
+mkdir -p ~/.ssh/config
 
 
 # +--------------+
