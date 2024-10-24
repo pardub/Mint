@@ -428,16 +428,14 @@ pip3 uninstall protobuf
 #python3 -m pip install qt-material
 #pip3 install qt-material
 
-
 # INSTALL JETBRAINS MONO FONTS IN ~/.local/share/fonts
-mkdir -p "$HOME"/.local/share/fonts/nerd-fonts
+mkdir -p /usr/share/fonts/jetbrains
 cd /tmp
-sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.2/JetBrainsMono.zip
-#sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/JetBrainsMono.zip
-#sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/2.2.0-RC/JetBrainsMono.zip
-sudo unzip /tmp/JetBrainsMono.zip -d ~/.local/share/fonts/nerd-fonts
+sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip
+sudo unzip /tmp/JetBrainsMono.zip -d /usr/share/fonts/jetbrains
 fc-cache -v
 cd || exit
+
 
 # +-------------------+
 # | Wireguard Config |
