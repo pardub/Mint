@@ -1078,7 +1078,6 @@ The first line below designates the directory where will place all of our custom
 	  which-key-max-description-length 40
 	  which-key-allow-imprecise-window-fit nil
 	  which-key-separator " → " ))
-	  (which-key-mode 1)
 #+end_src
 
 * TEST
